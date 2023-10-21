@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from 'react'
-import { Navbar } from './components/navbar'
-import { Topbar } from './components/topbar'
-import Dashboard from './components/dashboard'
-import Fitness from './components/fitness'
+'use client';
+import React, { useState } from 'react';
+import { Navbar } from './components/navbar';
+import { Topbar } from './components/topbar';
+import Dashboard from './components/dashboard';
+import Fitness from './components/fitness';
 
 export default function HomePage() {
   const [currentComponent, setCurrentComponent] = useState('dashboard');
