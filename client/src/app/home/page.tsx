@@ -2,26 +2,30 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/navbar';
 import { Topbar } from './components/topbar';
-import Dashboard from './components/dashboard';
-import Fitness from './components/fitness';
+import DashboardPage from './components/dashboard-page';
+import FitnessPage from './components/fitness-page';
+import MealsPage from './components/meals-page';
 
 export default function HomePage() {
-  const [currentComponent, setCurrentComponent] = useState('dashboard');
+  const [currentComponent, setCurrentComponent] = useState('/dashboard');
 
   const handleNavigation = (component: string) => {
     setCurrentComponent(component);
   };
 
-  let Component = Dashboard; // default component
+  let Component = DashboardPage;
   switch (currentComponent) {
     case '/dashboard':
-      Component = Dashboard;
+      Component = DashboardPage;
       break;
     case '/fitness':
-      Component = Fitness;
+      Component = FitnessPage;
+      break;
+    case '/meals':
+      Component = MealsPage;
       break;
     default:
-      Component = Dashboard; // default component
+      Component = DashboardPage;
       console.log(currentComponent);
       break;
   }

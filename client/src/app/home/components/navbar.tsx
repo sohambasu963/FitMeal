@@ -37,19 +37,19 @@ export function Navbar({
               Dashboard
             </Button>
             <Button
-              variant={currentComponent === '/library' ? 'default' : 'ghost'}
+              variant={currentComponent === '/meals' ? 'default' : 'ghost'}
               className="w-full justify-start"
-              onClick={() => navigateTo('/library')}
+              onClick={() => navigateTo('/meals')}
             >
               <Library className="mr-2 h-4 w-4" />
               Meals
             </Button>
             <Button
               variant={
-                currentComponent === '/marketplace' ? 'default' : 'ghost'
+                currentComponent === '/fitness' ? 'default' : 'ghost'
               }
               className="w-full justify-start"
-              onClick={() => navigateTo('/marketplace')}
+              onClick={() => navigateTo('/fitness')}
             >
               <Store className="mr-2 h-4 w-4" />
               Fitness

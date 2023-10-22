@@ -5,7 +5,7 @@ import { MealPlan } from './meal-plan';
 import { Macros } from './macros';
 import { getGreeting, getTodayDate } from '@/lib/utils';
 
-export default function Dashboard() {
+export default function DashboardPage() {
   const greeting = getGreeting();
   const todayDate = getTodayDate();
 

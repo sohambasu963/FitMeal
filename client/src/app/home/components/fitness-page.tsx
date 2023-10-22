@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Fitness() {
+export default function FitnessPage() {
   return (
     <div>
       <h1>Fitness Page</h1>
