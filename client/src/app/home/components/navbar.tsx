@@ -42,7 +42,7 @@ export function Navbar({
               onClick={() => navigateTo('/library')}
             >
               <Library className="mr-2 h-4 w-4" />
-              Library
+              Meals
             </Button>
             <Button
               variant={
@@ -52,15 +52,7 @@ export function Navbar({
               onClick={() => navigateTo('/marketplace')}
             >
               <Store className="mr-2 h-4 w-4" />
-              Marketplace
-            </Button>
-            <Button
-              variant={currentComponent === '/playground' ? 'default' : 'ghost'}
-              className="w-full justify-start"
-              onClick={() => navigateTo('/playground')}
-            >
-              <FlaskConical className="mr-2 h-4 w-4" />
-              Playground
+              Fitness
             </Button>
           </div>
         </div>
@@ -85,24 +77,6 @@ export function Navbar({
           >
             <Settings className="mr-2 h-4 w-4" />
             Settings
-          </Button>
-          <Button
-            variant={
-              currentComponent === '/notifications' ? 'default' : 'ghost'
-            }
-            className="w-full justify-start"
-            onClick={() => navigateTo('/notifications')}
-          >
-            <Bell className="mr-2 h-4 w-4" />
-            Notifications
-          </Button>
-          <Button
-            variant={currentComponent === '/billing' ? 'default' : 'ghost'}
-            className="w-full justify-start"
-            onClick={() => navigateTo('/billing')}
-          >
-            <CreditCard className="mr-2 h-4 w-4" />
-            Billing
           </Button>
           <Button
             variant={currentComponent === '/logout' ? 'default' : 'ghost'}

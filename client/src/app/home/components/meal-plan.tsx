@@ -15,24 +15,6 @@ import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import BakeryDiningIcon from '@mui/icons-material/BakeryDining';
 
 export function MealPlan() {
-  const meals = [
-    {
-      title: 'Spaghetti Carbonara',
-      description: 'Creamy pasta with parmesan and egg',
-      chef: 'Sofia Davis',
-      email: 'm@example.com',
-      avatar: '/avatars/01.png',
-    },
-    {
-      title: 'Grilled Salmon',
-      description: 'Salmon fillet with a lemon herb butter sauce',
-      chef: 'Jackson Lee',
-      email: 'p@example.com',
-      avatar: '/avatars/02.png',
-    },
-    // ... Add two more meal options similarly
-  ];
-
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <Card>
@@ -92,7 +74,7 @@ export function MealPlan() {
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-xl font-bold">Snacks</CardTitle>
-          <BakeryDiningIcon />
+          <BakeryDiningIcon fontSize="large" />
         </CardHeader>
         <CardContent className="pt-4">
           {mealsData.snacks.map((meal, index) => (

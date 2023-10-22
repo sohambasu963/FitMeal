@@ -1,19 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { MealPlan } from './meal-plan';
+import { Macros } from './macros';
 import { getGreeting, getTodayDate } from '@/lib/utils';
 
 export default function Dashboard() {
-  const [selectedTab, setSelectedTab] = useState('Meal Plan');
   const greeting = getGreeting();
   const todayDate = getTodayDate();
-
-  const handleTabChange = (e: React.FormEvent<HTMLDivElement>) => {
-    const value = (e.target as HTMLInputElement).value;
-    console.log(value);
-    setSelectedTab(value);
-  };
 
   return (
     <div style={{ marginTop: '-12px' }}>
@@ -44,20 +38,16 @@ export default function Dashboard() {
               <h2 className="text-xl font-bold tracking-tight">{todayDate}</h2>
             </div>
           </div>
-          <Tabs
-            defaultValue="Meal Plan"
-            className="space-y-4"
-            onChange={handleTabChange}
-          >
+          <Tabs defaultValue="Meal Plan" className="space-y-4">
             <TabsList>
               <TabsTrigger value="Meal Plan">Meal Plan</TabsTrigger>
-              <TabsTrigger value="Macros">Macros &amp; Calories</TabsTrigger>
-              <TabsTrigger value="Weight">Weight &amp; Muscle</TabsTrigger>
+              <TabsTrigger value="Macros">Macros</TabsTrigger>
             </TabsList>
             <TabsContent value="Meal Plan" className="space-y-4">
-              {selectedTab === 'Meal Plan' && <MealPlan />}
-              {selectedTab === 'Macros' && <div>Macros</div>}
-              {selectedTab === 'Weight' && <div>Weight</div>}
+              <MealPlan />
+            </TabsContent>
+            <TabsContent value="Macros" className="space-y-4">
+              <Macros />
             </TabsContent>
           </Tabs>
         </div>
