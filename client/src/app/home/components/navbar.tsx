@@ -45,9 +45,7 @@ export function Navbar({
               Meals
             </Button>
             <Button
-              variant={
-                currentComponent === '/fitness' ? 'default' : 'ghost'
-              }
+              variant={currentComponent === '/fitness' ? 'default' : 'ghost'}
               className="w-full justify-start"
               onClick={() => navigateTo('/fitness')}
             >

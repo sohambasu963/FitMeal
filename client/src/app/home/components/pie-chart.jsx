@@ -4,7 +4,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ArcElement, ChartDataLabels);
 
-export function PieChart() {
+export function PieChart({ mealCalories }) {
+  console.log(mealCalories);
   const data = {
     datasets: [
       {

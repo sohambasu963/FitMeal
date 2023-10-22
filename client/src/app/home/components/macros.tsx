@@ -2,7 +2,7 @@ import React from 'react';
 import { Progress } from '@/components/ui/progress';
 import { PieChart } from './pie-chart';
 
-export function Macros() {
+export function Macros({ mealCalories }: any) {
   return (
     <div className="flex">
       {/* Right Half: Macros */}
@@ -25,7 +25,7 @@ export function Macros() {
       {/* Left Half: Pie Chart */}
       <div className="w-1/2 p-4">
         <h1 className="text-xl font-bold mb-4">Calories by Meal</h1>
-        <PieChart />
+        <PieChart mealCalories={mealCalories} />
       </div>
     </div>
   );
