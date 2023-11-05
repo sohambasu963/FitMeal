@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { MealPlan } from './meal-plan';
 import { Macros } from './macros';
 import { getGreeting, getTodayDate } from '@/lib/utils';
+import mealsData from './meals-data';
 
 export default function DashboardPage() {
   const greeting = getGreeting();
   const todayDate = getTodayDate();
+
+  const [mealCalories, setMealCalories] = useState({
+    breakfast: mealsData.breakfast[0].nutritionalInfo.calories,
+    lunch: mealsData.lunch[0].nutritionalInfo.calories,
+    dinner: mealsData.dinner[0].nutritionalInfo.calories,
+    snacks: mealsData.snacks[0].nutritionalInfo.calories,
+  });
 
   return (
     <div style={{ marginTop: '-12px' }}>
@@ -44,10 +52,10 @@ export default function DashboardPage() {
               <TabsTrigger value="Macros">Macros</TabsTrigger>
             </TabsList>
             <TabsContent value="Meal Plan" className="space-y-4">
-              <MealPlan />
+              <MealPlan setMealCalories={setMealCalories} />
             </TabsContent>
             <TabsContent value="Macros" className="space-y-4">
-              <Macros />
+              <Macros mealCalories={mealCalories} />
             </TabsContent>
           </Tabs>
         </div>

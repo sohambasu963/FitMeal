@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import mealsData from './meals-data';
 import { NutritionalInfo } from './nutritional-info';
 import CoffeeIcon from '@mui/icons-material/Coffee';
@@ -25,31 +20,42 @@ function MealItems({ data, onMealSelect }: MealItemsProps) {
     onMealSelect(meal);
   };
 
-  return (
-    data.map((meal: any, index: number) => (
-      <button
-        key={index}
-        className={`relative group rounded transition h-32 w-full px-1 border-b py-2 ${selectedMeal === meal ? 'bg-primary text-white' : 'hover:bg-gray-100 text-black'} `}
-        onClick={() => setSelectedMeal(meal)}
-      >
-        <div className="flex justify-between items-center space-x-4">
-          <div className="text-left flex-1">
-            <h6 className={`text-lg font-semibold ${selectedMeal === meal ? 'text-white' : 'text-black'}`}>{meal.title}</h6>
-            <p className={`text-gray-500 text-sm ${selectedMeal === meal ? 'text-white' : 'text-black'}`}>{meal.description}</p>
-          </div>
-          <NutritionalInfo info={meal.nutritionalInfo} />
+  return data.map((meal: any, index: number) => (
+    <button
+      key={index}
+      className={`relative group rounded transition h-32 w-full px-1 border-b py-2 ${
+        selectedMeal === meal
+          ? 'bg-primary text-white'
+          : 'hover:bg-gray-100 text-black'
+      } `}
+      onClick={() => setSelectedMeal(meal)}
+    >
+      <div className="flex justify-between items-center space-x-4">
+        <div className="text-left flex-1">
+          <h6
+            className={`text-lg font-semibold ${
+              selectedMeal === meal ? 'text-white' : 'text-black'
+            }`}
+          >
+            {meal.title}
+          </h6>
+          <p
+            className={`text-gray-500 text-sm ${
+              selectedMeal === meal ? 'text-white' : 'text-black'
+            }`}
+          >
+            {meal.description}
+          </p>
         </div>
-      </button>
-    ))
-  );
+        <NutritionalInfo info={meal.nutritionalInfo} />
+      </div>
+    </button>
+  ));
 }
 
-
-export function MealPlan() {
-  const [mealCalories, setMealCalories] = useState({ breakfast: 0, lunch: 0, dinner: 0, snacks: 0 });
-
+export function MealPlan({ setMealCalories }: any) {
   const handleMealSelect = (mealType: string, meal: any) => {
-    setMealCalories(prev => ({ ...prev, [mealType]: meal.calories }));
+    setMealCalories((prev: any) => ({ ...prev, [mealType]: meal.calories }));
   };
 
   return (
@@ -60,7 +66,10 @@ export function MealPlan() {
           <CoffeeIcon />
         </CardHeader>
         <CardContent className="pt-4 my-2">
-          <MealItems data={mealsData.breakfast} onMealSelect={(meal) => handleMealSelect('breakfast', meal)} />
+          <MealItems
+            data={mealsData.breakfast}
+            onMealSelect={(meal) => handleMealSelect('breakfast', meal)}
+          />
         </CardContent>
       </Card>
       <Card>
@@ -69,7 +78,10 @@ export function MealPlan() {
           <LunchDiningIcon />
         </CardHeader>
         <CardContent className="pt-4 my-2">
-        <MealItems data={mealsData.lunch} onMealSelect={(meal) => handleMealSelect('lunch', meal)} />
+          <MealItems
+            data={mealsData.lunch}
+            onMealSelect={(meal) => handleMealSelect('lunch', meal)}
+          />
         </CardContent>
       </Card>
       <Card>
@@ -78,16 +90,22 @@ export function MealPlan() {
           <DinnerDiningIcon />
         </CardHeader>
         <CardContent className="pt-4 my-2">
-        <MealItems data={mealsData.dinner} onMealSelect={(meal) => handleMealSelect('dinner', meal)} />
+          <MealItems
+            data={mealsData.dinner}
+            onMealSelect={(meal) => handleMealSelect('dinner', meal)}
+          />
         </CardContent>
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-xl font-bold">Snacks</CardTitle>
-          <BakeryDiningIcon fontSize='large'/>
+          <BakeryDiningIcon fontSize="large" />
         </CardHeader>
         <CardContent className="pt-4">
-        <MealItems data={mealsData.snacks} onMealSelect={(meal) => handleMealSelect('snacks', meal)} />
+          <MealItems
+            data={mealsData.snacks}
+            onMealSelect={(meal) => handleMealSelect('snacks', meal)}
+          />
         </CardContent>
       </Card>
     </div>

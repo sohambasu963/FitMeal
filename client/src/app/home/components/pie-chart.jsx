@@ -6,10 +6,15 @@ Chart.register(ArcElement, ChartDataLabels);
 
 export function PieChart({ mealCalories }) {
   console.log(mealCalories);
+
+  const totalCalories = Object.values(mealCalories).reduce((a, b) => a + b, 0);
+  const mealPercentages = Object.values(mealCalories).map((calories) => (calories / totalCalories) * 100);
+
   const data = {
     datasets: [
       {
-        data: [15, 35, 40, 10],
+        // data: [15, 35, 40, 10],
+        data: mealPercentages,
         backgroundColor: ['red', 'lightblue', 'green', 'yellow'],
       },
     ],
